@@ -17,11 +17,14 @@ public class ApplePicker : MonoBehaviour
     public GameObject overCanvas;
     public GameObject scoreGO;
     public Text finalScore;
+    GameObject tfinalcount;
     // Start is called before the first frame update
     void Start()
     {
         basketList = new List<GameObject>();
         GameObject tBasketGO = Instantiate<GameObject>(basketPrefab);
+        tfinalcount = GameObject.Find("tFinalScore");
+        finalScore = tfinalcount.GetComponent<Text>();
         Vector3 pos = Vector3.zero;
         pos.y = -14f;
         tBasketGO.transform.position = pos;
@@ -66,7 +69,9 @@ public class ApplePicker : MonoBehaviour
             Time.timeScale = 0f;
             mainCanvas.SetActive(false);
             overCanvas.SetActive(true);
-            Text finalScore = scoreGO.GetComponent<Text>();
+            finalScore.text ="Twoj wynik: " + scoreGO.GetComponent<Text>().text;
+            
+            
             
         }
     }

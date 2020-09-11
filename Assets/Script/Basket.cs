@@ -7,6 +7,7 @@ public class Basket : MonoBehaviour
 {
     [Header(" Definiowane dynamicznie")]
     public Text scoreGT;
+    public int score;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +34,7 @@ public class Basket : MonoBehaviour
         if (collidedWith.tag == "Apple")
         {
             Destroy(collidedWith);
-            int score = int.Parse(scoreGT.text);
+            score = int.Parse(scoreGT.text);
             score += 100;
             scoreGT.text = score.ToString();
             if (score > HighScore.score)
